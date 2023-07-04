@@ -55,7 +55,8 @@ public class Empleados {
 					case 3: //-------Aumentar salario
 						nombre = JOptionPane.showInputDialog("Aumento de sueldo"+
 															"\nIngrese el nombre del empleado");
-						aumento = Integer.parseInt(JOptionPane.showInputDialog("\nIngrese el aumento de salario"));
+						aumento = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el aumento de salario"+
+																				"\nMontos: 10 - 15 - 20"));
 						if(aumento == 10 || aumento == 15 || aumento == 20) {
 							
 							for(int i = 0;i<empleado.length;i++) {
