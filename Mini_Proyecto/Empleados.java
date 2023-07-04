@@ -20,10 +20,11 @@ public class Empleados {
 																"\n1.-Contratar Empleados"+
 																"\n2.-Despedir Empleados"+
 																"\n3.-Aumentar Salario"+
-																"\n4.-Salir"));
+																"\n4.-Listar Empleados"+
+																"\n5.-Salir"));
 			
-			if(opcion >= 1 && opcion <= 4) {
-				while(opcion != 4 && opcion > 0) {
+			if(opcion >= 1 && opcion <= 5) {
+				while(opcion != 5 && opcion > 0) {
 					
 					switch(opcion) {
 					
@@ -51,7 +52,27 @@ public class Empleados {
 						}
 						
 						break;
-					case 3:
+					case 3: //-------Aumentar salario
+						nombre = JOptionPane.showInputDialog("Aumento de sueldo"+
+															"\nIngrese el nombre del empleado");
+						aumento = Integer.parseInt(JOptionPane.showInputDialog("\nIngrese el aumento de salario"));
+						if(aumento == 10 || aumento == 15 || aumento == 20) {
+							
+							for(int i = 0;i<empleado.length;i++) {
+								if(empleado[i] != null) {
+									if(empleado[i].getNombre().equals(nombre)){
+										sueldo = empleado[i].getSueldo()+(int)(empleado[i].getSueldo()*(aumento/100));
+										empleado[i]= new EdicionEmpleadosDos(nombre, sueldo);
+									}
+								}
+								
+							}
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Ingrese un monto valido");
+						}
+						break;
+					case 4:
 						JOptionPane.showMessageDialog(null, "Listar empleados"+"\nSe imprimirá en consola");
 						for(int i=0;i<empleado.length;i++) {
 							if (empleado[i] != null) {
@@ -62,7 +83,7 @@ public class Empleados {
 						    }
 						}
 						break;
-					case 4:
+					case 5:
 						System.out.println("Salir");
 						break;
 					default:
@@ -74,6 +95,7 @@ public class Empleados {
 																			"\n1.-Contratar Empleados"+
 																			"\n2.-Despedir Empleados"+
 																			"\n3.-Aumentar Salario"+
+																			"\n4.-Listar Empleados"+
 																			"\n4.-Salir"));
 					
 				}//------Final While
